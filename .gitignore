@@ -2,3 +2,4 @@ config.py
 bot-run.bat
 cenz
 cenz.json
+__pycache__
