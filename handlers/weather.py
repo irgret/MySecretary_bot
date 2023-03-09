@@ -27,7 +27,7 @@ async def process_name(message: types.Message, state: FSMContext):
 
         await bot.send_message(
             message.chat.id,
-            md.text('Oh! Good choice!', md.bold(data['name'])), parse_mode=ParseMode.MARKDOWN
+            md.text('Прогноз на сегодня:', md.bold(data['name'])), parse_mode=ParseMode.MARKDOWN
         )
 
         code_to_smile = {
@@ -57,7 +57,7 @@ async def process_name(message: types.Message, state: FSMContext):
                 weather = 'Посмотри в окно, не могу понять, что там'
 
             humidity = data['main']['humidity']
-            pressure = data['main']['pressure']
+            pressure = round(data['main']['pressure']*0.750063755419211)
             wind = round(data['wind']['speed'], 1)
             sunrise_timestamp = datetime.datetime.fromtimestamp(data['sys']['sunrise'])
             sunset_timestamp = datetime.datetime.fromtimestamp(data['sys']['sunset'])
