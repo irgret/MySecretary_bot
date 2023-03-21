@@ -7,7 +7,7 @@ from handlers import weather, exchange, calc, test, start
 
 def controller(dp : Dispatcher):
     dp.register_message_handler(start.cmd_start, commands=['start', 'help', 'bot'])
-    dp.register_message_handler(start.cmd_start, Text(equals=['бот', 'мистер бот'], ignore_case=True))
+    dp.register_message_handler(start.cmd_start, Text(equals=['бот', 'мистер бот', 'bot'], ignore_case=True))
     dp.register_message_handler(test.cmd_test, Text(equals='Тест'))
     dp.register_message_handler(weather.cmd_weather, Text(equals='Узнать погоду', ignore_case=True))
     dp.register_message_handler(exchange.cmd_rate, Text(equals=['Курс валют', 'курс валюты'], ignore_case=True))
